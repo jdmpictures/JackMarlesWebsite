@@ -43,7 +43,7 @@ body {
   top: 0;
   width: 100%;
   height: 100%;
-  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/86186/crt.png");
+  background-image: url("/dist/images/TV.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   content: "";
@@ -83,6 +83,7 @@ body {
   filter: blur(1px);
   color: #fff;
   animation: jerkup 100ms infinite;
+  z-index: 10;
 }
 .menu header {
   color: #e7e05c;

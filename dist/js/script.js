@@ -1,4 +1,4 @@
-var main = document.querySelector('main'),
+let main = document.querySelector('main'),
 	canvas = document.getElementById('canvas'),
 	ctx = canvas.getContext('2d'),
 	text = document.querySelector('.text'),
@@ -17,13 +17,13 @@ canvas.height = (ww * 0.5625) / 3;
 // Generate CRT noise
 function snow(ctx) {
 
-	var w = ctx.canvas.width,
+	let w = ctx.canvas.width,
 		h = ctx.canvas.height,
 		d = ctx.createImageData(w, h),
 		b = new Uint32Array(d.data.buffer),
 		len = b.length;
 
-	for (var i = 0; i < len; i++) {
+	for (let i = 0; i < len; i++) {
 		b[i] = ((255 * Math.random()) | 0) << 24;
 	}
 
@@ -37,7 +37,7 @@ function animate() {
 
 // Glitch
 for (i = 0; i < 4; i++) {
-	var span = text.firstElementChild.cloneNode(true);
+	let span = text.firstElementChild.cloneNode(true);
 	text.appendChild(span);
 }
 
@@ -50,9 +50,11 @@ window.addEventListener('DOMContentLoaded', function(e) {
 });
 
 window.addEventListener('keydown', function(e) {
-	var key = e.keyCode;
-	var prev = idx;
-	if (key == 38 || key == 40) {
+
+
+	let key = e.keyCode;
+	let prev = idx;
+	if (key == 38 || key == 40 || key == 13) {
 		e.preventDefault();
 
 		switch (key) {
@@ -66,9 +68,25 @@ window.addEventListener('keydown', function(e) {
 					idx++;
 				}
 				break;
+			case 13:
+				openLink();
+				break;
 		}
 
 		ul.children[prev].classList.remove('active');
 		ul.children[idx].classList.add('active');
-	}
+	} 
+
 }, false);
+
+
+function openLink(){
+	const activeLink = document.querySelector('.active');
+	const linkHref = activeLink.querySelector('a').href;
+
+	if(linkHref){
+		window.open(linkHref, '_blank');
+		console.log(linkHref);
+	}
+	
+}
