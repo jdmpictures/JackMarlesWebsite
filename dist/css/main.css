@@ -99,10 +99,14 @@ body {
 .menu ul li {
   box-sizing: border-box;
   list-style: outside none none;
-  padding: 5px 15px;
+  padding: 8px 20px;
 }
 .menu ul li.active {
   background-color: #1af2ff;
+}
+.menu ul li.active a {
+  color: #fff;
+  text-decoration: none;
 }
 .menu ul li a {
   color: #fff;
@@ -355,5 +359,17 @@ body {
     opacity: 1;
     transform: scale(1, 1);
     transform: skew(0, 0);
+  }
+}
+@media only screen and (max-width: 768px) {
+  .overlay::after {
+    background-image: none !important;
+  }
+  .menu {
+    width: 70%;
+    font-size: 40px;
+  }
+  .menu .key {
+    font-size: 30px;
   }
 }
