@@ -9,4 +9,13 @@ function setDate() {
     dateContainer.innerHTML = formattedDate;
 }
 
+function setTime() {
+    const currentTime = new Date();
+    let hours = currentTime.getHours();
+    let minutes = currentTime.getMinutes();
+    document.getElementById('time').textContent = hours + ":" + minutes;  
+}
+
 window.onload = setDate;
+setInterval(setTime, 1000);
+setTime();
