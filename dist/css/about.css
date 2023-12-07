@@ -6,17 +6,22 @@
   font-family: "Tele-Two";
   src: url(../fonts/EuropeanTeletextNuevo.ttf);
 }
+* {
+  box-sizing: border-box;
+}
+
 body {
   background: #000000;
+  display: flex;
+  flex-direction: column;
   height: 100%;
   width: 100%;
   margin: 0;
   opacity: 0;
   animation: fadeIn 2s ease-in-out forwards;
-}
-
-a {
-  text-decoration: none;
+  padding: 0.5em;
+  overflow-x: hidden;
+  font-size: 62.5%;
 }
 
 .status-bar {
@@ -25,7 +30,7 @@ a {
   font-family: "Tele-two";
   color: #fff;
   justify-content: space-between;
-  font-size: clamp(0.7rem, 2vw, 1.5rem);
+  font-size: clamp(0.1rem, 2vw, 0.8rem);
 }
 
 #teletext {
@@ -39,16 +44,15 @@ header {
   justify-content: space-between;
   overflow: hidden;
   width: 100%;
-  height: 20%;
+  height: 10%;
 }
 
 .logo span {
   display: inline-block;
   font-family: "Tele-two";
-  justify-content: flex-start;
   padding: 1vw;
   margin: 0.5vw;
-  font-size: clamp(0.2rem, 5vw, 4rem);
+  font-size: clamp(0.1rem, 8vw, 1.5rem);
   font-weight: bolder;
   background-color: #fff;
   color: #000000;
@@ -61,12 +65,21 @@ header {
 
 .pagetitle {
   font-family: "tele";
-  color: #fff;
-  font-size: clamp(3rem, 8vw, 9rem);
+  text-decoration: none;
+  font-size: clamp(3rem, 8vw, 7rem);
+  align-self: center;
+}
+
+.pagetitle a {
+  text-decoration: none;
   color: yellow;
   background-color: blue;
-  padding-left: calc(40px + 1.5625vw);
-  padding-right: calc(40px + 1.5625vw);
+}
+
+.main {
+  font-family: "tele-two";
+  color: white;
+  width: 90%;
 }
 
 @keyframes fadeIn {

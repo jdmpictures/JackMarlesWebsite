@@ -97,10 +97,10 @@ function openLink(){
 	
 }
 
-// Assuming li elements have a class name 'menu-item'
+
 
 allLiElements.forEach(item => {
   item.addEventListener('click', function() {
-    setActive(this); // 'this' refers to the clicked li element
+    setActive(this); 
   });
 });
