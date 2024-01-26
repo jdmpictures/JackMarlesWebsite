@@ -3,6 +3,11 @@
     src: url(../fonts/EuropeanTeletextNuevo.ttf);
 }
 
+body {
+    margin: 0;
+    padding: 0;
+}
+
 .sidebar{
     display: flex;
     height: 100%;
@@ -16,23 +21,39 @@
 
 }
 
-ul {
+.menu {
     list-style-type: none;
     margin: 0;
     padding: 0;
     font-family: tele-two;
     text-align: center;
     line-height: 1rem;
+    width: 100%;
 
-    
-
-    li {
-        color: white;
-        z-index: 1;
-        text-decoration: none;
-        font-size: 0.8rem;
+    div {
         align-self: center;
-        
-        
+        text-decoration: none;
+        color: white;
+        font-size: 0.8rem;
+        cursor: pointer;
+        display: block;
+
+        .submenu {
+            display: none;
+        }
+        .subitem{
+            font-size: 0.5rem;
+            display: block;
+            }
+    }
+}
+
+.gallery {
+    margin-left: 30%;  
+    padding: 20px; 
+
+    img { 
+        width: 20%;
+        padding: 3px;
     }
 }

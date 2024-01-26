@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./css/main.css">
     <link rel="stylesheet" type="text/css" href="./css/photo.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script defer src="./js/main.js"></script>
+    <script defer src="./js/photo.js"></script>
     <title>PICTURE</title>
 </head>
 <body>
-
-<header>
     <div class="status-bar">
         P101/13<div id="teletext">Teletext</div> 100<div id="date"></div><div id="time"></div>
     </div>
+<header>
     <div class="logo">
         <div id="top">
         <span>J</span>
@@ -38,17 +39,59 @@
 </header>
     
 <div class="sidebar">
-    <ul>
-        <a href=""> <li>TRAVEL</li></a>
-        <a href=""> <li>PORTRAITS</li></a>
-        <a href=""> <li>STREET</li></a>
-        <a href=""> <li>LANDSCAPES</li></a>
-        <a href=""> <li>VIDEO</li></a>
-    </ul>
+    <div class="menu">
+        <div>
+            <div onclick="filterImagesByPhrase('travel')" class="sub" >TRAVEL</div>
+            <div class="submenu">
+                <a class="subitem" id="vietnam">vietnam</a>
+                <a class="subitem" id="vietnam">thailand</a>
+                <a class="subitem" id="vietnam">switzerland</a>
+                <a class="subitem" id="vietnam">berlin</a>
+            </div>
+        </div>
+        
+        
+        <div href=""> <li>PORTRAITS</li></div>
+        <div href=""> <li>STREET</li></div>
+        <div href=""> <li>LANDSCAPES</li></div>
+        
+        <div>
+            <div class="sub">EVENTS</div>
+            <div class="submenu"> 
+                <a class="subitem" id="vietnam">glastonbudget</a>
+                <a class="subitem" id="vietnam">tour de france</a>
+                <a class="subitem" id="vietnam">switzerland</a>
+                <a class="subitem" id="vietnam">berlin</a>
+            </div>
+        </div>
+        <div href=""> <li>VIDEO</li></div>
+    </div>
 </div>
 <div class="gallery">
-    
+    <img id="travel" src="https://cdn.britannica.com/79/232779-050-6B0411D7/German-Shepherd-dog-Alsatian.jpg">
+    <img src="https://cdn.britannica.com/79/232779-050-6B0411D7/German-Shepherd-dog-Alsatian.jpg">
+    <img src="https://cdn.britannica.com/79/232779-050-6B0411D7/German-Shepherd-dog-Alsatian.jpg">
+    <img src="https://cdn.britannica.com/79/232779-050-6B0411D7/German-Shepherd-dog-Alsatian.jpg">
+    <img id="travel" src="https://cdn.britannica.com/79/232779-050-6B0411D7/German-Shepherd-dog-Alsatian.jpg">
+    <img src="https://cdn.britannica.com/79/232779-050-6B0411D7/German-Shepherd-dog-Alsatian.jpg">
+    <img src="https://cdn.britannica.com/79/232779-050-6B0411D7/German-Shepherd-dog-Alsatian.jpg">
+    <img src="https://cdn.britannica.com/79/232779-050-6B0411D7/German-Shepherd-dog-Alsatian.jpg">
+    <img id="travel" src="https://cdn.britannica.com/79/232779-050-6B0411D7/German-Shepherd-dog-Alsatian.jpg">
+    <img src="https://cdn.britannica.com/79/232779-050-6B0411D7/German-Shepherd-dog-Alsatian.jpg">
+
+
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+    //jquery to toggle menu
+    $('.sub').click(function() {
+        $(this).next('.submenu').slideToggle()
+    
+    })
+})
+
+</script>
     
 </body>
 </html>

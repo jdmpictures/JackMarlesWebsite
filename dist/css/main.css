@@ -83,6 +83,32 @@ header {
   font-size: clamp(0.75rem, 8vw, 1rem);
 }
 
+#LUFC {
+  float: right; /* You can also use 'right' if you want the image on the right side */
+  margin-right: 0.5em; /* Adjust the margin as needed for spacing between image and text */
+  max-width: 25%;
+  height: auto;
+}
+
+@media only screen and (max-width: 320px) {
+  #LUFC {
+    display: none;
+  }
+}
+#Nikon {
+  float: left; /* You can also use 'right' if you want the image on the right side */
+  margin-left: 0.5em; /* Adjust the margin as needed for spacing between image and text */
+  max-width: 25%;
+  height: auto;
+}
+
+#goldstar {
+  float: right; /* You can also use 'right' if you want the image on the right side */
+  margin-right: 0.5em; /* Adjust the margin as needed for spacing between image and text */
+  max-width: 25%;
+  height: auto;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

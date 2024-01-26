@@ -2,6 +2,11 @@
   font-family: "Tele-Two";
   src: url(../fonts/EuropeanTeletextNuevo.ttf);
 }
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .sidebar {
   display: flex;
   height: 100%;
@@ -13,18 +18,36 @@
   justify-content: center;
 }
 
-ul {
+.menu {
   list-style-type: none;
   margin: 0;
   padding: 0;
   font-family: tele-two;
   text-align: center;
   line-height: 1rem;
+  width: 100%;
 }
-ul li {
-  color: white;
-  z-index: 1;
-  text-decoration: none;
-  font-size: 0.8rem;
+.menu div {
   align-self: center;
+  text-decoration: none;
+  color: white;
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: block;
+}
+.menu div .submenu {
+  display: none;
+}
+.menu div .subitem {
+  font-size: 0.5rem;
+  display: block;
+}
+
+.gallery {
+  margin-left: 30%;
+  padding: 20px;
+}
+.gallery img {
+  width: 20%;
+  padding: 3px;
 }
