@@ -7,13 +7,16 @@ body {
   padding: 0;
 }
 
+.status-bar {
+  z-index: 3;
+}
+
 .sidebar {
   display: flex;
   height: 100%;
-  width: 20%;
+  width: 30%;
   position: fixed;
   border-right: white solid 1.5px;
-  z-index: -1;
   align-items: center;
   justify-content: center;
 }
@@ -48,6 +51,6 @@ body {
   padding: 20px;
 }
 .gallery img {
-  width: 20%;
+  width: 30%;
   padding: 3px;
 }

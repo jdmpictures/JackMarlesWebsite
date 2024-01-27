@@ -1,20 +1,28 @@
 function filterImagesByPhrase(phrase) {
     var gallery = document.querySelector('.gallery');
     var images = gallery.querySelectorAll('img');
-
-    // Convert NodeList to Array for filtering
     var imagesArray = Array.from(images);
-
-    // Filter images based on the specified phrase in their id attribute
+    
     imagesArray = imagesArray.filter(function(image) {
         return image.id.includes(phrase);
     });
 
-    // Clear the gallery
-    gallery.innerHTML = '';
+    images.forEach((image) => {
+        image.style.display = 'none';
+    })
 
-    // Append the filtered images back to the gallery
     imagesArray.forEach(function(image) {
-        gallery.appendChild(image);
+        image.style.display = ''
     });
 }
+
+let categories  = document.querySelectorAll('.sub').forEach(item => 
+    item.addEventListener('click', e => { 
+        filterImagesByPhrase(item.textContent.toLowerCase());
+        console.log(item.textContent)
+        
+    })
+    )
+
+
+

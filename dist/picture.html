@@ -41,7 +41,8 @@
 <div class="sidebar">
     <div class="menu">
         <div>
-            <div onclick="filterImagesByPhrase('travel')" class="sub" >TRAVEL</div>
+            <div class="sub" >ALL</div>
+            <div class="sub parent" >TRAVEL</div>
             <div class="submenu">
                 <a class="subitem" id="vietnam">vietnam</a>
                 <a class="subitem" id="vietnam">thailand</a>
@@ -51,12 +52,12 @@
         </div>
         
         
-        <div href=""> <li>PORTRAITS</li></div>
-        <div href=""> <li>STREET</li></div>
-        <div href=""> <li>LANDSCAPES</li></div>
+            <div class="sub" id="portait">PORTRAITS</div>
+            <div> STREET</div>
+            <div class="sub">LANDSCAPES</div>
         
         <div>
-            <div class="sub">EVENTS</div>
+            <div class="sub parent">EVENTS</div>
             <div class="submenu"> 
                 <a class="subitem" id="vietnam">glastonbudget</a>
                 <a class="subitem" id="vietnam">tour de france</a>
@@ -68,16 +69,12 @@
     </div>
 </div>
 <div class="gallery">
-    <img id="travel" src="https://cdn.britannica.com/79/232779-050-6B0411D7/German-Shepherd-dog-Alsatian.jpg">
-    <img src="https://cdn.britannica.com/79/232779-050-6B0411D7/German-Shepherd-dog-Alsatian.jpg">
-    <img src="https://cdn.britannica.com/79/232779-050-6B0411D7/German-Shepherd-dog-Alsatian.jpg">
-    <img src="https://cdn.britannica.com/79/232779-050-6B0411D7/German-Shepherd-dog-Alsatian.jpg">
-    <img id="travel" src="https://cdn.britannica.com/79/232779-050-6B0411D7/German-Shepherd-dog-Alsatian.jpg">
-    <img src="https://cdn.britannica.com/79/232779-050-6B0411D7/German-Shepherd-dog-Alsatian.jpg">
-    <img src="https://cdn.britannica.com/79/232779-050-6B0411D7/German-Shepherd-dog-Alsatian.jpg">
-    <img src="https://cdn.britannica.com/79/232779-050-6B0411D7/German-Shepherd-dog-Alsatian.jpg">
-    <img id="travel" src="https://cdn.britannica.com/79/232779-050-6B0411D7/German-Shepherd-dog-Alsatian.jpg">
-    <img src="https://cdn.britannica.com/79/232779-050-6B0411D7/German-Shepherd-dog-Alsatian.jpg">
+    <img id="all portraits" src="https://live.staticflickr.com/65535/53491437276_c2b8b16a25.jpg">
+    <img id="all portraits"  src="https://live.staticflickr.com/65535/53491743779_09a9b0c9c5_w.jpg">
+    <img id="all portraits" src="https://live.staticflickr.com/65535/53491437336_4c252647fe_z.jpg">
+    <img id="all portraits"  src="https://live.staticflickr.com/65535/53491437296_e09d9ee7b9.jpg">
+    <img id="all landscapes travel"  src="https://live.staticflickr.com/65535/53491594768_0c6cca4ed4.jpg">
+</div>
 
 
 </div>
@@ -85,7 +82,7 @@
 <script type="text/javascript">
     $(document).ready(function(){
     //jquery to toggle menu
-    $('.sub').click(function() {
+    $('.parent').click(function() {
         $(this).next('.submenu').slideToggle()
     
     })
