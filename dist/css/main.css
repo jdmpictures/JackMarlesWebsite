@@ -23,6 +23,16 @@ body {
   overflow-x: hidden;
 }
 
+.socialicons{
+  justify-content: center;
+  height: 30%;
+  width: auto;
+}
+
+.icon{
+  height: 50px;
+}
+
 .status-bar {
   display: flex;
   width: 100%;
