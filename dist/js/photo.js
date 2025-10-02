@@ -24,5 +24,8 @@ let categories  = document.querySelectorAll('.sub').forEach(item =>
     })
     )
 
+function toggleMenu() {
+  document.querySelector('.sidebar').classList.toggle('active');
+}
 
 
