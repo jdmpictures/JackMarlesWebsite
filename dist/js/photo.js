@@ -29,61 +29,8 @@ function toggleMenu() {
 }
 
 
-/* Lightbox overlay */
-#lightbox {
-  display: none; 
-  position: fixed;
-  z-index: 99999;
-  padding-top: 60px;
-  left: 0;
-  top: 0;
-  width: 100%; 
-  height: 100%; 
-  background-color: rgba(0,0,0,0.9);
-  justify-content: center;
-  align-items: center;
-}
 
-/* Lightbox image */
-#lightbox-img {
-  max-width: 90%;
-  max-height: 80%;
-  display: block;
-  margin: auto;
-}
-
-/* Close button */
-#lightbox .close {
-  position: absolute;
-  top: 20px;
-  right: 35px;
-  color: white;
-  font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-/* Navigation */
-.lightbox-nav .prev, .lightbox-nav .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  color: white;
-  font-size: 50px;
-  padding: 16px;
-  user-select: none;
-  transition: 0.3s;
-}
-.lightbox-nav .prev { left: 20px; }
-.lightbox-nav .next { right: 20px; }
-
-.lightbox-nav .prev:hover,
-.lightbox-nav .next:hover,
-#lightbox .close:hover {
-  color: yellow;
-}
-
-JavaScript (photo.js or inline <script>)
+//Lightbox Coding
 
 const gallery = document.querySelectorAll('.gallery img');
 const lightbox = document.getElementById('lightbox');
