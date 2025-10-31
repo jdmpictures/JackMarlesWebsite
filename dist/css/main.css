@@ -25,11 +25,11 @@ body {
 
 .socialicons{
   justify-content: center;
-  height: 30%;
-  width: auto;
+  align-items: center;
+  display: flex;
 }
 
-.icon{
+.icon img{
   height: 50px;
 }
 
@@ -126,4 +126,51 @@ header {
   to {
     opacity: 1;
   }
+}
+
+.construction {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  text-align: center;
+  height: 80vh;
+  animation: fadeIn 2s ease-in-out forwards;
+}
+
+.construction-box {
+  border: 2px solid yellow;
+  background-color: blue;
+  padding: 2rem;
+  font-family: "Tele";
+  color: yellow;
+  max-width: 90%;
+  box-shadow: 0 0 20px yellow;
+}
+
+.construction-title {
+  font-size: clamp(1rem, 6vw, 3rem);
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.construction-text {
+  font-size: clamp(0.8rem, 4vw, 1.2rem);
+  font-family: "Tele-two";
+  color: white;
+}
+
+@keyframes flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    opacity: 1;
+  }
+  20%, 24%, 55% {
+    opacity: 0;
+  }
+}
+
+.construction-title {
+  animation: flicker 1.5s infinite;
 }
