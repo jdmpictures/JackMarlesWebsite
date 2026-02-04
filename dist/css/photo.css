@@ -1,139 +1,126 @@
-@font-face {
-  font-family: "Tele-Two";
-  src: url(../fonts/EuropeanTeletextNuevo.ttf);
-}
-
+/* ---------------------------
+   GLOBAL
+---------------------------- */
 body {
   margin: 0;
   padding: 0;
+  font-family: "Tele-Two", sans-serif;
+  background: #000;
+  color: #fff;
 }
 
-.status-bar {
-  z-index: 9999999;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-/* ----- Desktop Sidebar ----- */
+/* ---------------------------
+   SIDEBAR
+---------------------------- */
 .sidebar {
   display: flex;
+  flex-direction: column;
   height: 100%;
   width: 30%;
   position: fixed;
-  border-right: white solid 1.5px;
-  align-items: center;
-  justify-content: center;
   top: 0;
   left: 0;
-  background: black;
-  color: white;
-  z-index: 9000; /* lower than header and burger */
+  background: #000;
+  border-right: 1.5px solid #fff;
+  padding-top: 20px;
+  z-index: 9000;
+  overflow-y: auto;
 }
 
 .menu {
-  list-style-type: none;
+  list-style: none;
   margin: 0;
   padding: 0;
-  font-family: tele-two;
-  text-align: center;
-  line-height: 1rem;
-  width: 100%;
 }
 
-.menu div {
-  align-self: center;
-  text-decoration: none;
-  color: white;
-  font-size: 0.8rem;
+.sub, .subitem {
   cursor: pointer;
-  display: block;
+  padding: 5px 10px;
+  font-size: 0.9rem;
 }
 
-.menu div .submenu {
-  display: none;
+.sub.parent {
+  font-weight: bold;
 }
 
-.menu div .subitem {
-  font-size: 0.5rem;
-  display: block;
+.sub.active, .subitem.active {
+  color: yellow;
+  font-weight: bold;
 }
 
-/* gallery pushes right on desktop */
+/* ---------------------------
+   SUBMENU
+---------------------------- */
+.submenu {
+  display: none; /* hidden by default */
+  padding-left: 15px;
+}
+
+.sub.active + .submenu {
+  display: block; /* show submenu when parent is active */
+}
+
+/* ---------------------------
+   GALLERY
+---------------------------- */
 .gallery {
-  margin-left: 30%;
+  margin-left: 30%; /* space for sidebar */
   padding: 20px;
 }
 
 .gallery img {
-  width: 30%;
-  padding: 3px;
-}
-
-/* ----- Burger Button ----- */
-.burger {
-  display: none;         /* hidden on desktop */
-  position: relative;    /* sits in normal flow */
-  margin: 10px 0 0 15px; /* spacing below header */
-  background: black;
-  color: white;
-  border-radius: 4px;
-  font-size: 2rem;
+  width: 250px; /* Masonry column width */
+  margin-bottom: 10px;
   cursor: pointer;
-  z-index: 10000;
+  display: block;
+  transition: opacity 0.3s ease;
 }
 
-/* Make sure header is above sidebar but below burger */
-header {
-  position: relative;
-  z-index: 9500;
-}
-
-/* ----- Mobile Styles ----- */
-@media (max-width: 768px) {
-  /* Sidebar hidden on mobile */
-  .sidebar {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;     /* cover full screen */
-    position: fixed;
-    top: 0;           /* sit at very top */
-    left: 0;
-    background: black;
-    padding-top: 80px; /* space below burger */
-    z-index: 9000;
+@media (max-width: 1024px) {
+  .gallery img {
+    width: 45%; /* smaller screens */
   }
+}
 
-  /* Sidebar visible when active */
+@media (max-width: 768px) {
+  .gallery {
+    margin-left: 0; /* full width on mobile */
+    padding: 10px;
+  }
+  .gallery img {
+    width: 100%;
+  }
+  .sidebar {
+    width: 100%;
+    display: none; /* hidden on mobile, toggle with burger */
+  }
   .sidebar.active {
     display: flex;
   }
-
-  /* Burger visible on mobile */
-  .burger {
-    display: block !important;
-  }
-
-  /* Gallery doesn’t shift */
-  .gallery {
-    margin-left: 0;
-  }
 }
 
-/* Lightbox overlay */
+/* ---------------------------
+   LIGHTBOX
+---------------------------- */
 #lightbox {
-  display: none; 
+  display: none;
   position: fixed;
   z-index: 99999;
   padding-top: 60px;
   left: 0;
   top: 0;
-  width: 100%; 
-  height: 100%; 
+  width: 100%;
+  height: 100%;
   background-color: rgba(0,0,0,0.9);
   justify-content: center;
   align-items: center;
 }
 
-/* Lightbox image */
 #lightbox-img {
   max-width: 90%;
   max-height: 80%;
@@ -141,28 +128,27 @@ header {
   margin: auto;
 }
 
-/* Close button */
 #lightbox .close {
   position: absolute;
   top: 20px;
   right: 35px;
-  color: white;
+  color: #fff;
   font-size: 40px;
   font-weight: bold;
   cursor: pointer;
 }
 
-/* Navigation */
 .lightbox-nav .prev, .lightbox-nav .next {
   cursor: pointer;
   position: absolute;
   top: 50%;
-  color: white;
+  color: #fff;
   font-size: 50px;
   padding: 16px;
   user-select: none;
   transition: 0.3s;
 }
+
 .lightbox-nav .prev { left: 20px; }
 .lightbox-nav .next { right: 20px; }
 
@@ -172,54 +158,35 @@ header {
   color: yellow;
 }
 
-JavaScript (photo.js or inline <script>)
-
-const gallery = document.querySelectorAll('.gallery img');
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-const closeBtn = document.querySelector('#lightbox .close');
-const prevBtn = document.querySelector('.lightbox-nav .prev');
-const nextBtn = document.querySelector('.lightbox-nav .next');
-
-let currentIndex = 0;
-
-function showLightbox(index) {
-  currentIndex = index;
-  lightboxImg.src = gallery[index].src;
-  lightbox.style.display = 'flex';
+/* ---------------------------
+   BURGER BUTTON (MOBILE)
+---------------------------- */
+.burger {
+  display: none;
+  position: relative;
+  margin: 10px 0 0 15px;
+  background: black;
+  color: white;
+  border-radius: 4px;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10000;
 }
 
-gallery.forEach((img, i) => {
-  img.addEventListener('click', () => showLightbox(i));
-});
-
-closeBtn.addEventListener('click', () => {
-  lightbox.style.display = 'none';
-});
-
-nextBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % gallery.length;
-  showLightbox(currentIndex);
-});
-
-prevBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + gallery.length) % gallery.length;
-  showLightbox(currentIndex);
-});
-
-lightbox.addEventListener('click', (e) => {
-  if (e.target === lightbox) {
-    lightbox.style.display = 'none';
+@media (max-width: 768px) {
+  .burger {
+    display: block !important;
   }
-});
+}
 
-/* Optional: swipe support for mobile */
-let startX = 0;
-lightbox.addEventListener('touchstart', (e) => {
-  startX = e.touches[0].clientX;
-});
-lightbox.addEventListener('touchend', (e) => {
-  let endX = e.changedTouches[0].clientX;
-  if (endX < startX - 50) nextBtn.click();
-  if (endX > startX + 50) prevBtn.click();
-});
+/* ---------------------------
+   OPTIONAL: Scrollbar styling for sidebar
+---------------------------- */
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 3px;
+}

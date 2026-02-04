@@ -7,7 +7,9 @@
     <link rel="stylesheet" type="text/css" href="./css/photo.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script defer src="./js/main.js"></script>
-    <script defer src="./js/photo.js"></script>
+    <script defer src="./js/photo.js"></script>.
+    <link href="https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2.1/dist/fjGallery.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2.1/dist/fjGallery.min.js"></script>
     <title>PICTURE</title>
 </head>
 <body>
@@ -37,7 +39,9 @@
     </a>
     </div>
 </header>
+
 <button class="burger" onclick="toggleMenu()">☰</button>   
+
 <div class="sidebar">
     <div class="menu">
         <div>
@@ -45,44 +49,43 @@
             <div class="sub parent" >TRAVEL</div>
             <div class="submenu">
                 <a class="subitem" id="vietnam">vietnam</a>
-                <a class="subitem" id="vietnam">thailand</a>
-                <a class="subitem" id="vietnam">switzerland</a>
-                <a class="subitem" id="vietnam">berlin</a>
+                <a class="subitem" id="thailand">thailand</a>
+                <a class="subitem" id="switzerland">switzerland</a>
+                <a class="subitem" id="berlin">berlin</a>
             </div>
         </div>
-        
-        
             <div class="sub" id="portait">PORTRAITS</div>
             <div> STREET</div>
             <div class="sub">LANDSCAPES</div>
-        
         <div>
             <div class="sub parent">EVENTS</div>
             <div class="submenu"> 
-                <a class="subitem" id="vietnam">glastonbudget</a>
-                <a class="subitem" id="vietnam">tour de france</a>
-                <a class="subitem" id="vietnam">switzerland</a>
-                <a class="subitem" id="vietnam">berlin</a>
+                <a class="subitem" id="glastonbudget">glastonbudget</a>
+                <a class="subitem" id="tour de france">tour de france</a>
+                <a class="subitem" id="switzerland">switzerland</a>
+                <a class="subitem" id="berlin">berlin</a>
             </div>
         </div>
         <div href=""> <li>VIDEO</li></div>
     </div>
 </div>
-<div class="gallery">
-    <img id="all portraits"  src="https://live.staticflickr.com/65535/53491437296_e09d9ee7b9.jpg">
-    <img id="all landscapes travel"  src="https://live.staticflickr.com/65535/53491594768_0c6cca4ed4.jpg">
+<div class="gallery fj-gallery" data-fj-gallery='{"rowHeight": 220, "itemMaxWidth": 350, "itemMaxHeight": 280}'>
+  <div>
+    <img class="gallery-item all portraits" src="https://live.staticflickr.com/65535/53491437296_e09d9ee7b9.jpg">
+  </div>
+  <div>
+    <img id="all landscapes travel" src="https://live.staticflickr.com/65535/53491594768_0c6cca4ed4.jpg">
+  </div>
 </div>
-<div id="lightbox">
+</div>
+
+<div id="lightbox"> 
   <span class="close">&times;</span>
   <img class="lightbox-content" id="lightbox-img">
   <div class="lightbox-nav">
     <span class="prev">&#10094;</span>
     <span class="next">&#10095;</span>
   </div>
-</div>
-
-
-
 </div>
 
 <script type="text/javascript">
@@ -97,4 +100,3 @@
 </script>
     
 </body>
-</html>
